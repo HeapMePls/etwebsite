@@ -5,10 +5,10 @@ const path = require('path');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'header.html'));
+app.get('/landing', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(port, () => {
-    console.log(`http://localhost:${port}`);
+    console.log(`Server running at http://localhost:${port}`);
 });
