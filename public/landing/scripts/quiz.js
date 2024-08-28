@@ -1,38 +1,9 @@
-const mysql = require('mysql2');
-require('dotenv').config();
-
-const quizData = [
-    {
-        question: "What is the capital of France?",
-        answers: ["Paris", "London", "Berlin", "Rome"]
-    },
-    {
-        question: "Which planet is closest to the Sun?",
-        answers: ["Earth", "Venus", "Mercury", "Mars"]
-    },
-    {
-        question: "Who wrote 'To Kill a Mockingbird'?",
-        answers: ["Harper Lee", "J.K. Rowling", "Ernest Hemingway", "Mark Twain"]
-    }
-];
+document.addEventListener('DOMContentLoaded', () => {
+    loadQuestion();
+});
 
 let currentQuestionIndex = 0;
 let userAnswers = [];
-
-const db = mysql.createConnection({
-    host: process.env.dbhost,
-    user: process.env.dbuser,
-    password: process.env.dbpw,
-    database: process.env.db
-});
-
-db.connect((err) => {
-    if (err) {
-        console.error('Error connecting to db:', err);
-        return;
-    }
-    //console.log('Connected to MySQL database');
-});
 
 function loadQuestion() {
     const questionEl = document.getElementById('question');
@@ -90,17 +61,17 @@ function showQuizCompletionForm() {
     
     const nameField = document.createElement('input');
     nameField.type = 'text';
-    nameField.placeholder = 'Nombre';
+    nameField.placeholder = 'Name';
     nameField.required = true;
 
     const emailField = document.createElement('input');
     emailField.type = 'email';
-    emailField.placeholder = 'Correo electrónico';
+    emailField.placeholder = 'Email';
     emailField.required = true;
 
     const phoneField = document.createElement('input');
     phoneField.type = 'tel';
-    phoneField.placeholder = 'Telefono';
+    phoneField.placeholder = 'Phone';
     phoneField.required = true;
 
     const submitButton = document.createElement('button');
@@ -126,37 +97,29 @@ async function handleFormSubmit(event) {
     const email = event.target.querySelector('input[type="email"]').value;
     const phone = event.target.querySelector('input[type="tel"]').value;
 
-    console.log("Quiz Results:");
-    userAnswers.forEach((answer, index) => {
-        console.log(`${index + 1}. ${answer.question}`);
-        console.log(`   Selected Answer: ${answer.selectedAnswer}`);
-    });
-
-    console.log("\nUser Information:");
-    console.log(`Name: ${name}`);
-    console.log(`Email: ${email}`);
-    console.log(`Phone: ${phone}`);
+    const payload = {
+        name,
+        email,
+        phone,
+        userAnswers
+    };
 
     try {
-        const queryNewUser = `INSERT INTO users (name, email, phone) VALUES (?, ?, ?)`;
-        const [userResult] = await db.query(queryNewUser, [name, email, phone]);
-        const userId = userResult.insertId;
+        const response = await fetch('/api/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
 
-        const userAnswersJson = JSON.stringify(userAnswers);
-
-        const queryUserQuiz = `INSERT INTO quiz (user_id, selected_answers) VALUES (?, ?)`;
-        await db.query(queryUserQuiz, [userId, userAnswersJson]);
-
-        res.status(200).json({ message: 'Quiz data saved successfully!' });
-
+        if (response.ok) {
+            alert('Quiz data saved successfully!');
+        } else {
+            alert('Error saving quiz data.');
+        }
     } catch (err) {
-        console.error('Error saving data:', err);
-        res.status(500).json({ message: 'Error saving data' });
+        console.error('Error:', err);
+        alert('Error saving quiz data.');
     }
 }
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.quiz-container').classList.add('fade-in');
-    loadQuestion();
-});
