@@ -33,7 +33,7 @@ app.post('/api/save', async (req, res) => {
 
         const userAnswersJson = JSON.stringify(userAnswers);
 
-        const queryUserQuiz = `INSERT INTO quiz (user_id, selected_answers) VALUES (?, ?)`;
+        const queryUserQuiz = `INSERT INTO quiz (user_id, selected_answer) VALUES (?, ?)`;
         await db.query(queryUserQuiz, [userId, userAnswersJson]);
 
         res.status(200).json({ message: 'Quiz data saved successfully!' });
