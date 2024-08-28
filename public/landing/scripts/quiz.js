@@ -47,7 +47,7 @@ function loadQuestion() {
 
 function handleAnswerClick(answerIndex) {
     userAnswers.push({
-        question: quizData[currentQuestionIndex].question,
+        //question: quizData[currentQuestionIndex].question,
         selectedAnswer: quizData[currentQuestionIndex].answers[answerIndex]
     });
 
@@ -68,7 +68,7 @@ function showQuizCompletionForm() {
     const questionEl = document.getElementById('question');
     const answersEl = document.getElementById('answers');
     
-    questionEl.textContent = "Quiz finished!";
+    questionEl.textContent = "Fin del cuestionario!";
     answersEl.innerHTML = '';
 
     const form = document.createElement('form');
@@ -76,21 +76,21 @@ function showQuizCompletionForm() {
     
     const nameField = document.createElement('input');
     nameField.type = 'text';
-    nameField.placeholder = 'Name';
+    nameField.placeholder = 'Nombre';
     nameField.required = true;
 
     const emailField = document.createElement('input');
     emailField.type = 'email';
-    emailField.placeholder = 'Email';
+    emailField.placeholder = 'Correo';
     emailField.required = true;
 
     const phoneField = document.createElement('input');
     phoneField.type = 'tel';
-    phoneField.placeholder = 'Phone';
+    phoneField.placeholder = 'Teléfono';
     phoneField.required = true;
 
     const submitButton = document.createElement('button');
-    submitButton.textContent = 'Submit';
+    submitButton.textContent = 'Registrar';
     submitButton.type = 'submit';
 
     form.appendChild(nameField);
