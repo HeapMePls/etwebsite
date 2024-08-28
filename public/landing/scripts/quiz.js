@@ -1,3 +1,18 @@
+const quizData = [
+    {
+        question: "What is the capital of France?",
+        answers: ["Paris", "London", "Berlin", "Rome"]
+    },
+    {
+        question: "Which planet is closest to the Sun?",
+        answers: ["Earth", "Venus", "Mercury", "Mars"]
+    },
+    {
+        question: "Who wrote 'To Kill a Mockingbird'?",
+        answers: ["Harper Lee", "J.K. Rowling", "Ernest Hemingway", "Mark Twain"]
+    }
+];
+
 document.addEventListener('DOMContentLoaded', () => {
     loadQuestion();
 });
