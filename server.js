@@ -9,10 +9,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 const db = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
+    host: process.env.dbhost,
+    user: process.env.dbuser,
+    password: process.env.dbpw,
+    database: process.env.db
 });
 
 app.get('/landing', (req, res) => {
