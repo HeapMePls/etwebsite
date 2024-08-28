@@ -1,23 +1,38 @@
+const mysql = require('mysql2');
+require('dotenv').config();
+
 const quizData = [
     {
         question: "What is the capital of France?",
-        answers: ["Paris", "London", "Berlin", "Rome"],
-        correct: 0
+        answers: ["Paris", "London", "Berlin", "Rome"]
     },
     {
         question: "Which planet is closest to the Sun?",
-        answers: ["Earth", "Venus", "Mercury", "Mars"],
-        correct: 2
+        answers: ["Earth", "Venus", "Mercury", "Mars"]
     },
     {
         question: "Who wrote 'To Kill a Mockingbird'?",
-        answers: ["Harper Lee", "J.K. Rowling", "Ernest Hemingway", "Mark Twain"],
-        correct: 0
+        answers: ["Harper Lee", "J.K. Rowling", "Ernest Hemingway", "Mark Twain"]
     }
 ];
 
 let currentQuestionIndex = 0;
 let userAnswers = [];
+
+const db = mysql.createConnection({
+    host: process.env.dbhost,
+    user: process.env.dbuser,
+    password: process.env.dbpw,
+    database: process.env.db
+});
+
+db.connect((err) => {
+    if (err) {
+        console.error('Error connecting to db:', err);
+        return;
+    }
+    //console.log('Connected to MySQL database');
+});
 
 function loadQuestion() {
     const questionEl = document.getElementById('question');
@@ -47,8 +62,7 @@ function loadQuestion() {
 function handleAnswerClick(answerIndex) {
     userAnswers.push({
         question: quizData[currentQuestionIndex].question,
-        selectedAnswer: quizData[currentQuestionIndex].answers[answerIndex],
-        isCorrect: answerIndex === quizData[currentQuestionIndex].correct
+        selectedAnswer: quizData[currentQuestionIndex].answers[answerIndex]
     });
 
     currentQuestionIndex++;
@@ -98,7 +112,6 @@ function showQuizCompletionForm() {
     form.appendChild(phoneField);
     form.appendChild(submitButton);
 
-    // Add an event listener to capture form submission
     form.addEventListener('submit', handleFormSubmit);
 
     answersEl.appendChild(form);
@@ -106,7 +119,7 @@ function showQuizCompletionForm() {
     document.querySelector('.quiz-container').classList.add('fade-in');
 }
 
-function handleFormSubmit(event) {
+async function handleFormSubmit(event) {
     event.preventDefault();
 
     const name = event.target.querySelector('input[type="text"]').value;
@@ -117,7 +130,6 @@ function handleFormSubmit(event) {
     userAnswers.forEach((answer, index) => {
         console.log(`${index + 1}. ${answer.question}`);
         console.log(`   Selected Answer: ${answer.selectedAnswer}`);
-        console.log(`   Correct: ${answer.isCorrect ? "Yes" : "No"}`);
     });
 
     console.log("\nUser Information:");
@@ -125,8 +137,24 @@ function handleFormSubmit(event) {
     console.log(`Email: ${email}`);
     console.log(`Phone: ${phone}`);
 
-    // You can display this information in the UI or handle it further as per your need
+    try {
+        const queryNewUser = `INSERT INTO users (name, email, phone) VALUES (?, ?, ?)`;
+        const [userResult] = await db.query(queryNewUser, [name, email, phone]);
+        const userId = userResult.insertId;
+
+        const userAnswersJson = JSON.stringify(userAnswers);
+
+        const queryUserQuiz = `INSERT INTO quiz (user_id, selected_answers) VALUES (?, ?)`;
+        await db.query(queryUserQuiz, [userId, userAnswersJson]);
+
+        res.status(200).json({ message: 'Quiz data saved successfully!' });
+
+    } catch (err) {
+        console.error('Error saving data:', err);
+        res.status(500).json({ message: 'Error saving data' });
+    }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.quiz-container').classList.add('fade-in');

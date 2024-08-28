@@ -3,6 +3,8 @@ const app = express();
 const port = 3000;
 const path = require('path');
 
+require('dotenv').config();
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/landing', (req, res) => {
