@@ -1,15 +1,38 @@
 const quizData = [
     {
-        question: "What is the capital of France?",
-        answers: ["Paris", "London", "Berlin", "Rome"]
+        question: "¿Qué quieres lograr?",
+        answers: ["Mejorar mi condición cognitiva, mi estado de ánimo o aliviar estrés.",
+                 "Mejorar mi condición física para sentirme fuerte y seguro.",
+                 "Aumentar mis vínculos sociales para salir, conocer gente y organizar mi tiempo libre."
+                ]
     },
     {
-        question: "Which planet is closest to the Sun?",
-        answers: ["Earth", "Venus", "Mercury", "Mars"]
+        question: "Señala tu situación actual:",
+        answers: ["Permanezco en la cama la mayor parte del día.",
+                 "Camino con ayuda de un familiar, con  bastón o andador.",
+                 "Camino sin dificultad y me mantengo en actividad."
+                ]
     },
     {
-        question: "Who wrote 'To Kill a Mockingbird'?",
-        answers: ["Harper Lee", "J.K. Rowling", "Ernest Hemingway", "Mark Twain"]
+        question: "Señala tus objetivos:",
+        answers: ["Mantener memoria y agilidad mental, manejar mis emociones y autonomía.",
+                 "Me gustaría sentirme fuerte y activo para pasear, viajar y hacer ejercicios físicos en forma rutinaria.",
+                 "Concurrir a eventos sociales, familiares y salir con amigos."
+                ]
+    },
+    {
+        question: "Señala si tienes algunas de estos problemas:",
+        answers: ["Dolores limitantes.",
+                 "Olvidos frecuentes o pérdida de memoria.",
+                 "Falta de motivación para salir o no tengo con quien hacerlo."
+                ]
+    },
+    {
+        question: "¿Cuáles de estas actividades realizas y disfrutas?",
+        answers: ["Lectura, cine o música.",
+                 "Caminar, hacer gimnasia o bailar.",
+                 "Viajar, interactuar en redes sociales o realizar actividades grupales."
+                ]
     }
 ];
 
