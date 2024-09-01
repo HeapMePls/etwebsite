@@ -1,4 +1,4 @@
-/* General styles (unchanged) */
+/* General styles */
 .logo {
     display: flex;
     align-items: center;
@@ -10,7 +10,8 @@
 }
 
 .land_img1 {
-    width: 100%; /* Adjust width for mobile screens */
+    width: 100%;
+    max-width: 300px;
 }
 
 nav ul {
@@ -18,7 +19,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
 nav ul li {
