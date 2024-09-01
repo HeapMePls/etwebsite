@@ -1,6 +1,4 @@
-
-
-
+/* General styles (unchanged) */
 .logo {
     display: flex;
     align-items: center;
@@ -12,7 +10,7 @@
 }
 
 .land_img1 {
-    width: 300px;
+    width: 100%; /* Adjust width for mobile screens */
 }
 
 nav ul {
@@ -20,6 +18,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
 nav ul li {
@@ -44,7 +43,6 @@ nav ul li a {
     padding: 20px;
     padding-left: 100px;
 }
-
 
 html, body {
     height: 100%;
@@ -81,26 +79,27 @@ footer {
     width: 100%;
 }
 
+/* Text columns */
 .text-columns {
-    display: flex; /* Flexbox layout for side-by-side columns */
-    gap: 30px; /* Adds space between the two columns */
+    display: flex;
+    gap: 30px;
 }
 
 .left-column, .right-column {
-    flex: 1; /* Ensure both columns take up equal space */
+    flex: 1;
 }
 
 .left-column h1 {
-    font-size: 24px; /* Adjust heading size */
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
 .left-column ul {
-    list-style: disc inside; /* Disc style bullets inside the column */
+    list-style: disc inside;
     margin: 0;
     padding-left: 120px;
-    list-style-position: inside; 
-    text-align: left;  
+    list-style-position: inside;
+    text-align: left;
 }
 
 .right-column p {
@@ -113,7 +112,7 @@ footer {
     color: white;
     padding: 15px 30px;
     font-size: 18px;
-    border: none; 
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     text-transform: uppercase;
@@ -127,5 +126,48 @@ footer {
 }
 
 .button-container {
-    text-align: center; 
+    text-align: center;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .logo img {
+        width: 150px; /* Smaller logo on mobile */
+    }
+
+    .land_img1 {
+        width: 100%; /* Ensure the image fits the screen */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation links vertically */
+        align-items: center; /* Center navigation links */
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .hero h2 {
+        font-size: 24px; /* Adjust heading size */
+    }
+
+    .hero p {
+        font-size: 16px; /* Adjust paragraph size */
+        padding-left: 20px; /* Reduce padding */
+    }
+
+    .text-columns {
+        flex-direction: column; /* Stack columns vertically */
+    }
+
+    .left-column ul {
+        padding-left: 20px; /* Adjust padding for mobile */
+    }
+
+    .cta-button {
+        width: 80%; /* Make button fit screen width */
+        margin: 0 auto; /* Center button */
+    }
 }
