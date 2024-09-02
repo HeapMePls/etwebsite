@@ -1,4 +1,3 @@
-/* General styles */
 .logo {
     display: flex;
     align-items: center;
@@ -130,19 +129,18 @@ footer {
     text-align: center;
 }
 
-/* Mobile styles */
 @media (max-width: 768px) {
     .logo img {
-        width: 150px; /* Smaller logo on mobile */
+        width: 150px;
     }
 
     .land_img1 {
-        width: 100%; /* Ensure the image fits the screen */
+        width: 100%;
     }
 
     nav ul {
-        flex-direction: column; /* Stack navigation links vertically */
-        align-items: center; /* Center navigation links */
+        flex-direction: column;
+        align-items: center;
     }
 
     nav ul li {
@@ -151,24 +149,24 @@ footer {
     }
 
     .hero h2 {
-        font-size: 24px; /* Adjust heading size */
+        font-size: 24px;
     }
 
     .hero p {
-        font-size: 16px; /* Adjust paragraph size */
-        padding-left: 20px; /* Reduce padding */
+        font-size: 16px;
+        padding-left: 20px;
     }
 
     .text-columns {
-        flex-direction: column; /* Stack columns vertically */
+        flex-direction: column;
     }
 
     .left-column ul {
-        padding-left: 20px; /* Adjust padding for mobile */
+        padding-left: 20px;
     }
 
     .cta-button {
-        width: 80%; /* Make button fit screen width */
-        margin: 0 auto; /* Center button */
+        width: 80%;
+        margin: 0 auto;
     }
 }

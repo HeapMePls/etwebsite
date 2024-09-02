@@ -54,7 +54,7 @@ nav ul li a {
 .answers button, 
 .quiz-form button {
     width: 450px;
-    padding: 15px;
+    padding: 1px;
     font-size: 25px;
     color: #ffffff;
     cursor: pointer;
