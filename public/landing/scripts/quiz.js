@@ -91,7 +91,7 @@ function showQuizCompletionForm() {
     const questionEl = document.getElementById('question');
     const answersEl = document.getElementById('answers');
     
-    questionEl.textContent = "Fin del cuestionario!";
+    questionEl.textContent = "¡Fin del cuestionario!";
     answersEl.innerHTML = '';
 
     const form = document.createElement('form');
