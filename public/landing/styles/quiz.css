@@ -201,41 +201,45 @@ footer p {
     box-shadow: 2px 2px 4px #000000;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .logo img {
-        width: 200px;
+        width: 150px;
+    }
+
+    .land_img1 {
+        width: 100%;
     }
 
     nav ul {
-        flex-direction: row;
+        flex-direction: column;
+        align-items: center;
     }
 
     nav ul li {
-        margin-left: 20px;
+        margin-left: 0;
+        margin-bottom: 10px;
     }
 
     .hero h2 {
-        font-size: 30px;
+        font-size: 24px;
     }
 
     .hero p {
-        font-size: 20px;
-        padding-left: 100px;
-    }
-
-    .question, .completed-message {
-        font-size: 24px;
-        padding: 0 20px;
-    }
-
-    .answers button, 
-    .quiz-form button {
-        width: 450px;
-        font-size: 25px;
-    }
-
-    .quiz-form input {
         font-size: 16px;
+        padding-left: 20px;
+    }
+
+    .text-columns {
+        flex-direction: column;
+    }
+
+    .left-column ul {
+        padding-left: 20px;
+    }
+
+    .cta-button {
+        width: 80%;
+        margin: 0 auto;
     }
 
     footer {

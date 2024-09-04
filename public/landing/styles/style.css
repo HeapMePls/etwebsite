@@ -32,14 +32,14 @@ nav ul li a {
 }
 
 .hero h2 {
-    font-size: 30px;
+    font-size: 35px;
     color: #ffcc66;
     margin-bottom: 20px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: 25px;
     color: #888;
     padding: 20px;
     padding-left: 100px;
@@ -126,12 +126,13 @@ header {
 }
 
 .left-column h1 {
-    font-size: 24px;
+    font-size: 29px;
     margin-bottom: 10px;
 }
 
 .left-column ul {
     list-style: disc inside;
+    font-size: 29px;
     margin: 0;
     padding-left: 120px;
     list-style-position: inside;
@@ -155,10 +156,13 @@ header {
     transition: background-color 0.3s ease;
     display: inline-block;
     margin-top: 0px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    box-shadow: 2px 2px 4px #000000;
 }
 
 .cta-button:hover {
     background-color: #ffb84d;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .button-container {
