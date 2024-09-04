@@ -9,6 +9,7 @@
 }
 
 .land_img1 {
+    width: 100%;
     width: 300px;
 }
 
@@ -17,6 +18,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
 }
 
 nav ul li {
