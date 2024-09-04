@@ -52,15 +52,9 @@ html, body {
     overflow-x: hidden;
     color: #a6a5a4;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500
-}
-
-header {
-    background: linear-gradient(to bottom, #ffd899, #fff5e1);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-weight: 500;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .hero {
@@ -68,6 +62,7 @@ header {
     padding: 10px 20px;
     text-align: center;
     flex: 1;
+    padding-bottom: 80px;
 }
 
 footer {
@@ -77,6 +72,44 @@ footer {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.footer-right {
+    text-align: right;
+    line-height: 0.5;
+    position: absolute;
+    right: 20px;
+    max-width: 50%;
+    word-wrap: break-word;
+}
+
+.footer-right p {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust the space between the icon and text */
+    margin: 10px 0; /* Adjust spacing between each line */
+}
+
+.footer-right i {
+    font-size: 18px; /* Adjust icon size */
+    color: #a6a5a4; /* Adjust icon color */
+}
+
+footer p {
+    text-transform: uppercase;
+    font-size: 20px; /* Adjust the overall font size */
+}
+
+header {
+    background: linear-gradient(to bottom, #ffd899, #fff5e1);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Text columns */
