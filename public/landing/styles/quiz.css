@@ -137,18 +137,18 @@ footer {
 .footer-right p {
     display: flex;
     align-items: center;
-    gap: 10px; /* Adjust the space between the icon and text */
-    margin: 10px 0; /* Adjust spacing between each line */
+    gap: 10px;
+    margin: 10px 0;
 }
 
 .footer-right i {
-    font-size: 18px; /* Adjust icon size */
-    color: #a6a5a4; /* Adjust icon color */
+    font-size: 18px;
+    color: #a6a5a4;
 }
 
 footer p {
     text-transform: uppercase;
-    font-size: 20px; /* Adjust the overall font size */
+    font-size: 20px;
 }
 
 .quiz-container {
@@ -161,6 +161,7 @@ footer p {
     text-align: center;
     padding: 20px;
     min-height: 300px;
+    height: 100%;
 }
 
 .quiz-container.fade-in {
@@ -171,16 +172,29 @@ footer p {
     opacity: 0;
 }
 
+.answers button, 
+.quiz-form button {
+    width: 100%;
+    max-width: 450px;
+    padding: 15px;
+    font-size: 22px;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #ffcc66;
+    border: none;
+    border-radius: 5px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    box-shadow: 2px 2px 4px #000000;
+}
+
 .answers {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: 15px;
     justify-content: center;
-    width: fit-content;
-    margin: 0 auto;
-    max-width: 500px;
+    width: 100%;
 }
 
 .answers li {
@@ -194,6 +208,24 @@ footer p {
     max-width: 400px;
     width: 100%;
     margin: 0 auto;
+    align-items: center;
+}
+
+.quiz-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #fff0d1;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 450px;
+    margin-bottom: 15px;
+}
+
+.quiz-form button {
+    max-width: 450px;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
 }
 
 .quiz-form button:hover {
