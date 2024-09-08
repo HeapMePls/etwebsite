@@ -1,42 +1,26 @@
 const quizData = [
     {
-        question: "¿Qué quieres lograr?",
+        question: "¿Cuál es la principal área de tu vida que te gustaría mejorar?",
         answers: [
-            { text: "Mejorar mi condición cognitiva, mi estado de ánimo o aliviar estrés.", type: "Cognitive" },
-            { text: "Mejorar mi condición física para sentirme fuerte y seguro.", type: "Physical" },
-            { text: "Aumentar mis vínculos sociales para salir, conocer gente y organizar mi tiempo libre.", type: "Social" }
+            { text: "Mantener mi mente activa y mejorar mi memoria.", type: "Cognitive" },
+            { text: "Sentirme más conectado y tener más relaciones significativas.", type: "Social" },
+            { text: "Aumentar mi energía y mejorar mi movilidad.", type: "Physical" }
         ]
     },
     {
-        question: "Señala tu situación actual:",
+        question: "¿Cómo te sientes en este momento respecto a tu bienestar general?",
         answers: [
-            { text: "Permanezco en la cama la mayor parte del día.", type: "Physical" },
-            { text: "Camino con ayuda de un familiar, con bastón o andador.", type: "Physical" },
-            { text: "Camino sin dificultad y me mantengo en actividad.", type: "Physical" }
+            { text: "Motivado pero necesito un empujón extra.", type: "Physical" },
+            { text: "Un poco perdido, no sé por dónde empezar.", type: "Physical" },
+            { text: "Estresado o desanimado, necesito un cambio.", type: "Physical" }
         ]
     },
     {
-        question: "Señala tus objetivos:",
+        question: "¿Qué tan dispuesto estás a invertir en tu bienestar?",
         answers: [
-            { text: "Mantener memoria y agilidad mental, manejar mis emociones y autonomía.", type: "Cognitive" },
-            { text: "Me gustaría sentirme fuerte y activo para pasear, viajar y hacer ejercicios físicos en forma rutinaria.", type: "Physical" },
-            { text: "Concurrir a eventos sociales, familiares y salir con amigos.", type: "Social" }
-        ]
-    },
-    {
-        question: "Señala si tienes algunas de estos problemas:",
-        answers: [
-            { text: "Dolores limitantes.", type: "Physical" },
-            { text: "Olvidos frecuentes o pérdida de memoria.", type: "Cognitive" },
-            { text: "Falta de motivación para salir o no tengo con quien hacerlo.", type: "Social" }
-        ]
-    },
-    {
-        question: "¿Cuáles de estas actividades realizas y disfrutas?",
-        answers: [
-            { text: "Lectura, cine o música.", type: "Cognitive" },
-            { text: "Caminar, hacer gimnasia o bailar.", type: "Physical" },
-            { text: "Viajar, interactuar en redes sociales o realizar actividades grupales.", type: "Social" }
+            { text: "Puedo invertir en un plan a largo plazo si veo resultados.", type: "Cognitive" },
+            { text: "Prefiero opciones accesibles o de bajo costo.", type: "Physical" },
+            { text: "Estoy buscando opciones gratuitas o con un costo mínimo.", type: "Social" }
         ]
     }
 ];
@@ -88,28 +72,8 @@ function handleAnswerClick(answerIndex) {
             loadQuestion();
         } else {
             showQuizCompletionForm();
-            tallySelectedTypes();
-            
-            
         }
     }, 500);
-}
-
-function tallySelectedTypes() {
-    const typeCount = {};
-
-    userAnswers.forEach(answer => {
-        const type = answer.selectedType;
-        if (typeCount[type]) {
-            typeCount[type]++;
-        } else {
-            typeCount[type] = 1;
-        }
-    });
-
-    const mostFrequentType = Object.keys(typeCount).reduce((a, b) => typeCount[a] > typeCount[b] ? a : b);
-
-    return mostFrequentType;
 }
 
 
@@ -120,28 +84,45 @@ function showQuizCompletionForm() {
     questionEl.textContent = "¡Fin del cuestionario!";
     answersEl.innerHTML = '';
 
-    const mostFrequentType = tallySelectedTypes();
+    // Display message based on each answer
+    userAnswers.forEach((answer, index) => {
+        const message = document.createElement('p');
+        switch (index) {
+            case 0: // For Question 1
+                if (answer.selectedAnswer === quizData[0].answers[0].text) {
+                    message.textContent = 'Te gustaría mantener tu mente activa y mejorar tu memoria.';
+                } else if (answer.selectedAnswer === quizData[0].answers[1].text) {
+                    message.textContent = 'Te gustaría sentirte más conectado y tener más relaciones significativas.';
+                } else {
+                    message.textContent = 'Te gustaría aumentar tu energía y mejorar tu movilidad.';
+                }
+                break;
+            case 1: // For Question 2
+                if (answer.selectedAnswer === quizData[1].answers[0].text) {
+                    message.textContent = 'Te sientes motivado, pero necesitas un empujón extra.';
+                } else if (answer.selectedAnswer === quizData[1].answers[1].text) {
+                    message.textContent = 'Te sientes un poco perdido y no sabes por dónde empezar.';
+                } else {
+                    message.textContent = 'Te sientes estresado o desanimado, necesitas un cambio.';
+                }
+                break;
+            case 2: // For Question 3
+                if (answer.selectedAnswer === quizData[2].answers[0].text) {
+                    message.textContent = 'Estás dispuesto a invertir en un plan a largo plazo si ves resultados.';
+                } else if (answer.selectedAnswer === quizData[2].answers[1].text) {
+                    message.textContent = 'Prefieres opciones accesibles o de bajo costo.';
+                } else {
+                    message.textContent = 'Buscas opciones gratuitas o de bajo costo.';
+                }
+                break;
+            default:
+                message.textContent = 'Gracias por completar el cuestionario.';
+                break;
+        }
+        answersEl.appendChild(message);
+    });
 
-    const message = document.createElement('p');
-    switch (mostFrequentType) {
-        case 'Cognitive':
-            message.textContent = 'Parece que tus objetivos se centran en mejorar tu condición cognitiva.';
-            break;
-        case 'Physical':
-            message.textContent = 'Parece que estás más interesado en mejorar tu condición física.';
-            break;
-        case 'Social':
-            message.textContent = 'Tus respuestas muestran que te gustaría fortalecer tus vínculos sociales.';
-            break;
-        default:
-            message.textContent = 'Gracias por completar el cuestionario.';
-            break;
-    }
-    
-    // Append the message
-    answersEl.appendChild(message);
-
-    // Create the form
+    // Create the form as before
     const form = document.createElement('form');
     form.classList.add('quiz-form');
     
@@ -175,6 +156,7 @@ function showQuizCompletionForm() {
 
     document.querySelector('.quiz-container').classList.add('fade-in');
 }
+
 
 
 async function handleFormSubmit(event) {
