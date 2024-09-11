@@ -50,10 +50,10 @@ app.post('/api/send-email', async (req, res) => {
     try {
         // Create a transporter object
         let transporter = nodemailer.createTransport({
-            service: 'Gmail', // or use 'SMTP', 'SendGrid', etc.
+            service: 'Gmail',
             auth: {
-                user: 'ionicfrost143@gmail.com', // Your email address
-                pass: 'ffty oamd urgs sctw',   // Your email password
+                user: process.env.EMAIL_USER, // Your email address
+                pass: process.env.EMAIL_PASS, // Your email password
             },
         });
 
