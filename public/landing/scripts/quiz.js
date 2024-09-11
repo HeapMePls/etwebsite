@@ -201,6 +201,8 @@ async function handleFormSubmit(event) {
         if (response.ok) {
             alert('Quiz data sent via email successfully!');
         } else {
+            const errorData = await response.json();
+            console.log(errorData);
             alert('Error sending email.');
         }
     } catch (err) {
