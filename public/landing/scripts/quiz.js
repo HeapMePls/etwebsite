@@ -58,11 +58,7 @@ function loadQuestion() {
 }
 
 function handleAnswerClick(answerIndex) {
-    userAnswers.push({
-        selectedAnswer: quizData[currentQuestionIndex].answers[answerIndex].text,
-        selectedType: quizData[currentQuestionIndex].answers[answerIndex].type
-    });
-
+    userAnswers.push(answerIndex);
     currentQuestionIndex++;
 
     document.querySelector('.quiz-container').classList.remove('fade-in');
