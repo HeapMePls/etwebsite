@@ -191,4 +191,25 @@ async function handleFormSubmit(event) {
         console.error('Error:', err);
         alert('Error saving quiz data.');
     }
+
+
+    try {
+        const response = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+            alert('Quiz data sent via email successfully!');
+        } else {
+            alert('Error sending email.');
+        }
+    } catch (err) {
+        console.error('Error:', err);
+        alert('Error sending email.');
+    }
 }
+

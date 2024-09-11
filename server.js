@@ -4,6 +4,7 @@ require('dotenv').config();
 const app = express();
 const port = 3000;
 const path = require('path');
+const nodemailer = require('nodemailer');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
@@ -40,6 +41,43 @@ app.post('/api/save', async (req, res) => {
     } catch (err) {
         console.error('Error saving data:', err);
         res.status(500).json({ message: 'Error saving data' });
+    }
+});
+
+app.post('/api/send-email', async (req, res) => {
+    const { name, email, phone, userAnswers } = req.body;
+
+    try {
+        // Create a transporter object
+        let transporter = nodemailer.createTransport({
+            service: 'Gmail', // or use 'SMTP', 'SendGrid', etc.
+            auth: {
+                user: 'ionicfrost143@gmail.com', // Your email address
+                pass: 'ffty oamd urgs sctw',   // Your email password
+            },
+        });
+
+        // Format the quiz answers into a readable format
+        const formattedAnswers = userAnswers.map((answer, index) => {
+            return `Question ${index + 1}: ${answer.selectedAnswer} (Type: ${answer.selectedType})`;
+        }).join('\n');
+
+        // Set up email data
+        let mailOptions = {
+            from: 'ionicfrost143@gmail.com', // Sender address
+            to: 'ionicfrost143@gmail.com',             // Recipient address
+            subject: 'Nuevo usuario terminó cuestionario',                // Subject line
+            text: `Un usuario contestó el cuestionario!\n\nNombre: ${name}\nE-mail: ${email}\nTeléfono: ${phone}\n\nRespuestas:\n${formattedAnswers}`
+        };
+
+        // Send the email
+        let info = await transporter.sendMail(mailOptions);
+
+        console.log('Email sent: ' + info.response);
+        res.status(200).json({ message: 'Email sent successfully!' });
+    } catch (error) {
+        console.error('Error sending email:', error);
+        res.status(500).json({ error: 'Failed to send email' });
     }
 });
 
