@@ -11,6 +11,7 @@
 .land_img1 {
     width: 100%;
     max-width: 300px;
+    margin-top: 30px;
 }
 
 nav ul {
@@ -40,10 +41,10 @@ nav ul li a {
 
 .hero p {
     font-size: 25px;
-    color: #888;
+    color: #000000;
     padding: 20px;
     padding-left: 100px;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;*/
 }
 
 html, body {
@@ -52,7 +53,7 @@ html, body {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    color: #a6a5a4;
+    color: #000000;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     min-height: 100vh;
@@ -65,7 +66,7 @@ html, body {
     text-align: center;
     flex: 1;
     padding-bottom: 80px;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;*/
 }
 
 footer {
@@ -93,13 +94,13 @@ footer {
 .footer-right p {
     display: flex;
     align-items: center;
-    gap: 10px; /* Adjust the space between the icon and text */
-    margin: 10px 0; /* Adjust spacing between each line */
+    gap: 10px;
+    margin: 10px 0;
 }
 
 .footer-right i {
-    font-size: 18px; /* Adjust icon size */
-    color: #a6a5a4; /* Adjust icon color */
+    font-size: 18px;
+    color: #000000;
 }
 
 footer p {
@@ -140,28 +141,29 @@ header {
 
 .right-column p {
     font-size: 20px;
-    color: #888;
+    color: #000000;
 }
 
 .cta-button {
     background-color: #ffcc66;
-    color: white;
+    color: black;
     padding: 15px 30px;
     font-size: 18px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
     text-transform: uppercase;
     transition: background-color 0.3s ease;
     display: inline-block;
     margin-top: 0px;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    /*text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;*/
     box-shadow: 2px 2px 4px #000000;
 }
 
 .cta-button:hover {
     background-color: #ffb84d;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    /*text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;*/
 }
 
 .button-container {

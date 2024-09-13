@@ -113,6 +113,7 @@ header {
 footer {
     background: linear-gradient(to top, #ffd899, #fff5e1);
     padding: 20px;
+    color: #000000;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -143,7 +144,7 @@ footer {
 
 .footer-right i {
     font-size: 18px;
-    color: #a6a5a4;
+    color: #000000;
 }
 
 footer p {
