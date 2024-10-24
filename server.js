@@ -5,9 +5,42 @@ const app = express();
 const port = 3000;
 const path = require('path');
 const nodemailer = require('nodemailer');
+const multer = require('multer');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+
+// temp
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        const uploadPath = path.join(__dirname, 'uploads'); // Directory where files will be stored
+        cb(null, uploadPath);
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, uniqueSuffix + '-' + file.originalname); // Custom filename
+    }
+});
+
+const upload = multer({ storage: storage });
+
+// File upload endpoint
+app.post('/upload', upload.single('file'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ message: 'No file uploaded' });
+    }
+
+    // File information is available in req.file
+    console.log('File uploaded:', req.file);
+
+    res.status(200).json({
+        message: 'File uploaded successfully!',
+        file: req.file
+    });
+});
+
+//
 
 const db = mysql.createPool({
     host: process.env.dbhost,
