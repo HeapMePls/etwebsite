@@ -5,42 +5,9 @@ const app = express();
 const port = 3000;
 const path = require('path');
 const nodemailer = require('nodemailer');
-const multer = require('multer');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-
-// temp
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const uploadPath = path.join(__dirname, 'uploads'); // Directory where files will be stored
-        cb(null, uploadPath);
-    },
-    filename: (req, file, cb) => {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, uniqueSuffix + '-' + file.originalname); // Custom filename
-    }
-});
-
-const upload = multer({ storage: storage });
-
-// File upload endpoint
-app.post('/upload', upload.single('file'), (req, res) => {
-    if (!req.file) {
-        return res.status(400).json({ message: 'No file uploaded' });
-    }
-
-    // File information is available in req.file
-    console.log('File uploaded:', req.file);
-
-    res.status(200).json({
-        message: 'File uploaded successfully!',
-        file: req.file
-    });
-});
-
-//
 
 const db = mysql.createPool({
     host: process.env.dbhost,
@@ -49,14 +16,19 @@ const db = mysql.createPool({
     database: process.env.db
 });
 
-app.get('/landing', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get('/quiz', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'quiz.html'));
-});
+/*app.get('/landing', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});*/
 
+/*app.get('/quiz', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'quiz.html'));
+});*/
+
+/*
 app.post('/api/save', async (req, res) => {
     const { name, email, phone, userAnswers } = req.body;
 
@@ -76,7 +48,8 @@ app.post('/api/save', async (req, res) => {
         res.status(500).json({ message: 'Error saving data' });
     }
 });
-
+*/
+/*
 app.post('/api/send-email', async (req, res) => {
     const { name, email, phone, userAnswers } = req.body;
 
@@ -109,7 +82,7 @@ app.post('/api/send-email', async (req, res) => {
         res.status(500).json({ error: 'Failed to send email' });
     }
 });
-
+*/
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });

@@ -1,67 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=9" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espacio Tres</title>
-    <link rel="stylesheet" href="/landing/styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link rel="icon" href="/landing/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/home/styles/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <header>
-        <div class="logo">
-            <img src="/landing/assets/icon.png" alt="Espacio Tres Logo">
+        <div class="top-row">
+            <div class="logo">
+                <img src="/home/assets/logo.png" alt="Espacio Tres Logo">
+            </div>
+            <h1>ESPACIO TRES</h1>
         </div>
         <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Eventos</a></li>
-                <li><a href="#">Inscripción</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>¡Descubre cómo fortalecer tu mente y tu cuerpo después de los 60!</h2>
-            <div class="text-columns">
-                <div class="left-column">
-                    <h1>En Espacio Tres te ayudamos a:</h1>
-                    <ul>
-                        <li>Mantener tu autonomía.</li>
-                        <li>Prevenir en términos de salud.</li>
-                        <li>Mejorar tu estado general.</li>
-                    </ul>
-                    <p>Accede a un programa personalizado para buscar tu bienestar, mejorar tu salud y construir objetivos a tu alcance.</p>
-                </div>
-                <div class="right-column">
-                    <div>
-                        <img class="land_img1" src="/landing/assets/l1.png" alt="Espacio Tres L1">
-                    </div>
-                </div>
+    <main class="content">
+        <div class="highlight-background"></div>
+        <section class="highlight-section">
+            <div class="highlight-content">
+                <h2>GUIANDO EL CAMINO A UN ENVEJECIMIENTO PLENO Y SALUDABLE</h2>
             </div>
-            <p>Puedes realizar nuestro cuestionario rápido, gratis y online para recibir</br>nuestros primeros consejos para un envejecimiento saludable.</p>
-            <div class="button-container">
-                <a href="https://espaciotres.net/quiz">
-                    <button class="cta-button">Cuestionario</button>
-                </a>
+            <div class="highlight-image">
+                <img src="/home/assets/banner2.webp" alt="Image1">
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <p>ATENCIÓN CON SENTIDO</p>
-        <div class="footer-right">
-            <p><i class="fas fa-envelope"></i> info@espaciotres.com</p>
-            <p><i class="fas fa-phone"></i> 099999999</p>
-            <p><i class="fab fa-instagram"></i> espaciotres</p>
-            <p><i class="fab fa-facebook"></i> espaciotres</p>
-        </div>
-    </footer>
+        <div class="activity-background"></div>
+        <div class="activity-paral"></div>
+        <section class="activity-section">
+            <div class="activity-content">
+                <h1>PODEMOS AYUDARTE CUANDO</h1>
+            </div>
+            <div class="activity-item">
+                <div class="activity-image">
+                    <img src="/home/assets/activity1.webp" alt="Image1">
+                </div>
+                <h2>Sentís que estás perdiendo fuerza, movilidad y querés ser independiente.</h2>
+            </div>
+            <div class="activity-item">
+                <div class="activity-image">
+                    <img src="/home/assets/activity2.webp" alt="Image1">
+                </div>
+                <h2>Te preocupa perder la memoria y te cuesta mantener la atención en distintas actividades.</h2>
+            </div>
+            <div class="activity-item">
+                <div class="activity-image">
+                    <img src="/home/assets/activity3.webp" alt="Image1">
+                </div>
+                <h2>Te sentís con pocas ganas de salir, perdés la motivación con frecuencia y te cuesta sostener
+                    hábitos.</h2>
+            </div>
+        </section>
+
+        <section class="pres-section">
+            <div class="pres-content">
+                <div class="main-carousel">
+                    <img src="/home/assets/equip1.webp" alt="Main Image 1" class="carousel-image active">
+                    <img src="/home/assets/equip2.webp" alt="Main Image 2" class="carousel-image">
+                    <img src="/home/assets/equip3.webp" alt="Main Image 3" class="carousel-image">
+                </div>
+                <div class="text-content">
+                    <h2>Ofrecemos programas personalizados para mejorar la autonomía y prevenir el deterioro cognitivo.
+                    </h2>
+                    <p>Mediante una plataforma digital de uso domiciliario y brindando nuestras instalaciones adaptadas
+                        a la terapia física-cognitiva.</p>
+                </div>
+            </div>
+        </section>
+        <script src="./home/scripts/home.js"></script>
+
+        <section class="method-container-section">
+            <section class="method-section">
+                <div class="method-text-content">
+                    <h2>Ampliamos nuestra forma de trabajar en prevención:</h2>
+                    <ul>
+                        <li>Masajes relajantes</li>
+                        <li>Mindfulness: individual y grupal</li>
+                        <li>Baile terapéutico</li>
+                        <li>Meditación</li>
+                    </ul>
+                </div>
+                <div class="method-image-content">
+                    <div class="method-tape1 tape-top"></div>
+                    <div class="method-tape1 tape-bottom"></div>
+                    <img src="./home/assets/method1.webp" alt="Relaxing environment">
+                    <div class="method-tape2 tape-top"></div>
+                    <div class="method-tape2 tape-bottom"></div>
+                </div>
+            </section>
+
+            <section class="method-section2">
+                <div class="method-image-content2">
+                    <img src="./home/assets/method2.webp" alt="Relaxing environment">
+                </div>
+                <div class="method-text-content2">
+                    <ul>
+                        <li>Consultorías individuales</li>
+                        <li>Psicoterapia</li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </main>
 </body>
+
 </html>
