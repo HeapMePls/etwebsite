@@ -1,0 +1,129 @@
+:root {
+    --yellow: #fedd58;
+    --orange: #f4c965;
+    --green: #e5f484;
+    --grey: #a6a5a3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Antonio', sans-serif;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+    margin-right: 20px;
+    height: auto;
+    background-color: transparent;
+    filter: drop-shadow(0 0 4px black);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--grey);
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: var(--orange);
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(0 0 4px black);
+    justify-content: space-between;
+}
+
+header .top-row {
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 50px;
+    color: #3e3e3e;
+    font-weight: 700;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    user-select: none;
+}
+
+.logo-link h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    transition: background 0.3s ease;
+}
+
+nav a:hover {
+    background: var(--grey);
+}
+
+/* Footer */
+footer {
+    background: var(--orange);
+    color: black;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    filter: drop-shadow(0 0 4px black);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content p {
+    margin: 0.5rem 0;
+    font-size: 24px;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.footer-nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    background: var(--grey);
+}

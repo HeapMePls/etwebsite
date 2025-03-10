@@ -6,26 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espacio Tres</title>
     <link rel="stylesheet" href="/home/styles/home.css">
+    <link rel="stylesheet" href="/global/global.css">
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/home/assets/logo.png">
 </head>
 
-<body>
-    <header>
-        <div class="top-row">
-            <div class="logo">
-                <img src="/home/assets/logo.png" alt="Espacio Tres Logo">
-            </div>
-            <h1>ESPACIO TRES</h1>
-        </div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<body id="top">
+    <div id="header"></div>
 
     <main class="content">
         <div class="highlight-background"></div>
@@ -65,7 +52,7 @@
             </div>
         </section>
 
-        <section class="pres-section">
+        <section class="pres-section" id="about">
             <div class="pres-content">
                 <div class="main-carousel">
                     <img src="/home/assets/equip1.webp" alt="Main Image 1" class="carousel-image active">
@@ -104,7 +91,11 @@
 
             <section class="method-section2">
                 <div class="method-image-content2">
+                    <div class="method-tape3 tape-top"></div>
+                    <div class="method-tape3 tape-bottom"></div>
                     <img src="./home/assets/method2.webp" alt="Relaxing environment">
+                    <div class="method-tape4 tape-top"></div>
+                    <div class="method-tape4 tape-bottom"></div>
                 </div>
                 <div class="method-text-content2">
                     <ul>
@@ -114,7 +105,30 @@
                 </div>
             </section>
         </section>
+
+        <section class="res-section">
+            <div class="res-content">
+                <div class="res-text">
+                    <h2>RESULTADOS QUE HAN LOGRADO NUESTROS CLIENTES:</h2>
+                    <ul>
+                        <li>Fortalecieron la memoria, la atención y el razonamiento a través de ejercicios cognitivos.
+                        </li>
+                        <li>Bajaron nivel de estrés y mejoraron el bienestar emocional con nuestras técnicas de
+                            mindfulness y yoga.</li>
+                        <li>Mejoraron su estado físico, con mayor movilidad y menos dolor.</li>
+                        <li>Participaron en actividades grupales, mejorando su integración social.</li>
+                    </ul>
+                </div>
+                <div class="res-img-container">
+                    <img src="/home/assets/results1.webp" alt="Main Image 1" class="res-img">
+                </div>
+            </div>
+        </section>
+
     </main>
 </body>
+
+<div id="footer"></div>
+<script src="/global/global.js"></script>
 
 </html>
