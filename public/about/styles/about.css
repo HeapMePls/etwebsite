@@ -1,10 +1,3 @@
-:root {
-    --yellow: #fedd58;
-    --orange: #f4c965;
-    --green: #e5f484;
-    --grey: #a6a5a3;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -12,16 +5,21 @@
     font-family: 'Antonio', sans-serif;
 }
 
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
 .about-container {
     position: relative;
-    z-index: 4; /* Ensures it's above the title image */
+    z-index: 4;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     max-width: 800px;
     margin: 0 auto;
-    padding-top: 20px; /* Extra space from title */
+    padding-top: 20px;
     filter: drop-shadow(0 0 4px black);
     
 }
@@ -30,7 +28,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    background: var(--orange);
+    background: var(--section);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -76,11 +74,23 @@
 .title-container {
     position: relative;
     text-align: center;
-    padding: 30px 10px; /* Space around the title */
-    margin-bottom: 80px; /* Space before next section */
+    padding: 30px 10px;
+    margin-bottom: 80px;
     margin-top: -10px;
     z-index: 2;
     filter: drop-shadow(0 0 4px black);
+}
+
+.tree-container {
+    background-image: url("/home/assets/contact1.webp");
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .title-container::before {
@@ -88,11 +98,11 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 60%; /* Background size */
+    width: 60%;
     height: 100%;
-    background: var(--yellow); /* Yellow background */
+    background: var(--section);
     transform: translate(-50%, -50%);
-    z-index: 1; /* Behind text */
+    z-index: 1;
     border-radius: 15px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
@@ -100,17 +110,17 @@
 .title-container h1,
 .title-container p {
     position: relative;
-    z-index: 3; /* Above background */
+    z-index: 3;
 }
 
 .title-container img {
     position: absolute;
     top: 45%;
     left: 0;
-    width: 100%; /* Full width */
-    height: 125vh; /* Taller image (adjust as needed) */
-    object-fit: cover; /* Ensures it fills the space */
-    opacity: 0.9; /* Keeps text readable */
-    z-index: 0; /* Behind everything */
+    width: 100%;
+    height: 125vh;
+    object-fit: cover;
+    opacity: 0.9;
+    z-index: 0;
     filter: drop-shadow(0 0 4px black);
 }
