@@ -1,55 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espacio Tres</title>
-    <link rel="stylesheet" href="/about/styles/about.css">
+    <title>Equipo · Espacio Tres</title>
+    <meta name="description"
+        content="Conocé al equipo clínico de Espacio Tres — profesionales especializados en neurociencia aplicada, rehabilitación funcional y tecnologías de realidad aumentada.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Antonio:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/global/global.css">
-    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/about/styles/about.css">
     <link rel="icon" type="image/png" href="/home/assets/logo.png">
 </head>
 
 <body id="top">
     <div id="header"></div>
     <div class="leaf-container" aria-hidden="true"></div>
-    <main class="content">
-        <div class="tree-container"></div>
-        <div class="title-container">
-            <h1>Acerca de Nosotros</h1>
-            <!--<p>Guiando el camino a un envejecimiento pleno y saludable.</p>
-            <img src="/home/assets/contact1.webp" alt="John Doe" class="aboutus">-->
-        </div>
-        
-        <div class="about-container">
-            <div class="member">
-                <img src="/home/assets/whoooareyou.webp" alt="John Doe" class="profile-photo">
-                <div class="member-info">
-                    <h3>Florencia Machado</h3>
-                    <ul>
-                        <li>🏆 Certified Innovation Leader</li>
-                        <li>📜 ISO 9001:2015 Certification</li>
-                    </ul>
-                </div>
-            </div>
-        
-            <div class="member">
-                <img src="/home/assets/whowho.webp" alt="Jane Smith" class="profile-photo">
-                <div class="member-info">
-                    <h3>Nancy Melgar</h3>
-                    <ul>
-                        <li>🎓 Industry Excellence Award 2023</li>
-                        <li>🔬 Research & Development Pioneer</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-    </main>
-</body>
 
-<div id="footer"></div>
-<script src="/global/global.js"></script>
+    <main class="content">
+
+        <!-- Hero -->
+        <section class="about-hero">
+            <div class="about-hero-inner">
+                <span class="section-label reveal">Equipo clínico</span>
+                <h1 class="reveal">Especialistas en rehabilitación<br>basada en evidencia</h1>
+                <p class="reveal">Profesionales con formación en neurociencia clínica, tecnologías de realidad aumentada
+                    y protocolos de intervención cognitiva validados internacionalmente.</p>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="team-section">
+            <div class="team-inner">
+                <div class="member-card reveal">
+                    <div class="member-photo-wrapper">
+                        <img src="/home/assets/whoooareyou.webp" alt="Florencia Machado" class="member-photo">
+                    </div>
+                    <div class="member-info">
+                        <h2 class="member-name">Florencia Machado</h2>
+                        <p class="member-role">Neuropsicóloga clínica · Directora de protocolo</p>
+                        <ul class="member-achievements">
+                            <li><span class="ach-icon">🏆</span> Certified Innovation Leader (MIT xPRO)</li>
+                            <li><span class="ach-icon">📜</span> ISO 9001:2015 — Sistemas de gestión de calidad clínica
+                            </li>
+                            <li><span class="ach-icon">🔬</span> Especialización en tecnologías de realidad aumentada
+                                aplicadas a neurorehabilitación</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="member-card reveal">
+                    <div class="member-photo-wrapper">
+                        <img src="/home/assets/whowho.webp" alt="Nancy Melgar" class="member-photo">
+                    </div>
+                    <div class="member-info">
+                        <h2 class="member-name">Nancy Melgar</h2>
+                        <p class="member-role">Especialista en rehabilitación funcional</p>
+                        <ul class="member-achievements">
+                            <li><span class="ach-icon">🎓</span> Industry Excellence Award 2023 — Rehabilitación
+                                cognitiva</li>
+                            <li><span class="ach-icon">🔬</span> Investigadora en neuroplasticidad y entrenamiento motor
+                            </li>
+                            <li><span class="ach-icon">📊</span> Diseño y validación de baterías neuropsicológicas
+                                adaptativas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission -->
+        <div class="mission-strip">
+            <p class="reveal">Aplicamos neurociencia de precisión y tecnología de vanguardia para medir, intervenir y
+                documentar la función cognitiva y motora con rigor clínico.</p>
+        </div>
+
+    </main>
+
+    <div id="footer"></div>
+    <script src="/global/global.js"></script>
 
 </html>
