@@ -228,6 +228,8 @@
 .needs-inner {
     max-width: 1100px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .section-label {
@@ -342,6 +344,7 @@
     height: 60px;
     background: var(--surface);
     clip-path: ellipse(55% 100% at 50% 0%);
+    z-index: 1;
 }
 
 .about-inner {
@@ -351,6 +354,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .about-carousel {
@@ -439,11 +444,14 @@
     height: 40px;
     background: var(--primary);
     clip-path: ellipse(55% 100% at 50% 100%);
+    z-index: 1;
 }
 
 .services-inner {
     max-width: 1100px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .services-grid {
@@ -558,7 +566,7 @@
     background: linear-gradient(135deg, rgba(44, 95, 46, 0.28) 0%, transparent 60%);
 }
 
-.results-text {}
+
 
 .results-list {
     list-style: none;
